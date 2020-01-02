@@ -9,7 +9,8 @@ sidebar_label: Console
 ## Install Pastel Console
 
 To install Pastel Console in your project with esy, run
-```sh
+
+```bash
 esy add @reason-native/pastel-console
 ```
 
@@ -24,7 +25,8 @@ In order to use Pastel Console, you must add it to your build system. With dune,
 ## Initialize Pastel Console
 
 Pastel Console must be initialized with
-```re
+
+```reason
 PastelConsole.init();
 ```
 
@@ -32,11 +34,12 @@ PastelConsole.init();
 
 That's it! Use the Console library as you usually would:
 
-```re
+```reason
 PastelConsole.init();
 
 Console.log([{name: "joe", age: 100}, {name: "sue", age: 18}]);
 ```
-```sh-stacked
+
+```bash-ansi
 [{[32m"joe"[39m, [33m100[39m}, {[32m"sue"[39m, [33m18[39m}]
 ```

@@ -1,0 +1,35 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Override the default Infima variables here.
+ */
+:root {
+  --ifm-navbar-background-color: #20232a;
+  --ifm-navbar-link-color: #fffc;
+  --ifm-navbar-link-hover-color: #ffffff;
+
+  --ifm-hero-background-color: #20232a;
+
+  --ifm-footer-background-color: #20232a;
+  --ifm-footer-title-color: #ffffff;
+  --ifm-footer-link-color: #fffc;
+  --ifm-footer-link-hover-color: #ffffff;
+}
+
+/**
+ * For ANSI output in the docs.
+ */
+.example-output {
+  background-color: #222;
+  border-radius: var(--ifm-global-radius);
+  color: #ffffff;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+  line-height: var(--ifm-pre-line-height);
+  padding: var(--ifm-pre-padding);
+}

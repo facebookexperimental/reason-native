@@ -9,7 +9,8 @@ sidebar_label: Quickstart
 ## Install Console
 
 To install Console in your project with esy, run
-```sh
+
+```bash
 esy add @reason-native/console
 ```
 
@@ -25,7 +26,7 @@ In order to use Pastel, you must add it to your build system. With dune, `consol
 
 Go ahead and `Console.log` anything you like! Check the [API documentation](./api) for all available methods.
 
-```re
+```reason
 Console.log((1, (2, 3)));
 Console.log(2.3323);
 
@@ -36,7 +37,7 @@ Console.warn(() => {/* anonymous function */});
 Console.log("\nI can be meta too:");
 Console.debug(Console.debug);
 ```
-```sh-stacked
+```bash-ansi
 {1, {2, 3}}
 2.3323
 

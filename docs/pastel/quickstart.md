@@ -9,7 +9,8 @@ sidebar_label: Quickstart
 ## Install Pastel
 
 To install Pastel in your project with esy, run
-```sh
+
+```bash
 esy add @reason-native/pastel
 ```
 
@@ -25,7 +26,7 @@ In order to use Pastel, you must add it to your build system. With dune, `pastel
 
 Pastel is fundamentally a [Reason JSX element](https://reasonml.github.io/docs/en/jsx) that wraps text in ANSI-compatible formatting. You can specify attributes such as `bold`, `underline`, and `color` to format terminal output. Wrap your pastel elements with `Pastel.()` to convert it to a string:
 
-```re
+```reason
 let output =
   Pastel.(
     <Pastel bold=true color=Green>
@@ -35,6 +36,7 @@ let output =
   );
 print_endline(output);
 ```
-```sh-stacked
+
+```bash-ansi
 [32m[1mHello [22m[39m[32m[1m[3m[4mWorld[24m[23m[22m[39m
 ```

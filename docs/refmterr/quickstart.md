@@ -9,7 +9,8 @@ sidebar_label: Quickstart
 ## Install Refmterr
 
 To install Refmterr in your project with esy, run
-```sh
+
+```bash
 esy add refmterr
 ```
 
@@ -35,7 +36,7 @@ In order to use Pastel, you must add it to your build pipeline. With dune, this 
 
 You can wrap any command that outputs ocamlopt/ocamlc error messages. For example, from your sandboxed project with the above package.json, you could run:
 
-```sh
+```bash
 esy refmterr ocamlopt -pp refmt someFile.re
 ```
 

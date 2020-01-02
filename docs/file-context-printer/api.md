@@ -7,10 +7,13 @@ sidebar_label: API
 > Prefer reading code? Check out [FileContextPrinter.rei](https://github.com/facebookexperimental/reason-native/blob/master/src/file-context-printer/FileContextPrinter.rei)
 
 ## Configuration Options
+
 ### `linesBefore`
+
 Lines of code to show before specified context.
 From there, extract and print file context like so:
-```re
+
+```reason
 module FCP =
   FileContextPrinter.Make({
     let config =
@@ -21,7 +24,8 @@ FCP.printFile(
   ((7, 1), (7, 11)),
 )
 ```
-```sh-stacked
+
+```bash-ansi
 [2m 6 ┆ [22m[2m */;[22m
 [31m[2m 7 ┆ [22m[39m[31m[1m[4mlet myFunc[24m[22m[39m[2mtion = ()[22m[31m[2m => [22m[39m[2mprint_endline([22m[32m[2m"do something"[22m[39m[2m);[22m
 [2m 8 ┆ [22m
@@ -30,9 +34,11 @@ FCP.printFile(
 ```
 
 ### `linesAfter`
+
 Lines of code to show before specified context.
 From there, extract and print file context like so:
-```re
+
+```reason
 module FCP =
   FileContextPrinter.Make({
     let config =
@@ -43,7 +49,8 @@ FCP.printFile(
   ((7, 1), (7, 11)),
 )
 ```
-```sh-stacked
+
+```bash-ansi
 [2m 4 ┆ [22m[2m * [22m[34m[2mThis[22m[39m[2m source code is licensed under the ...
 [2m 5 ┆ [22m[2m * [22m[34m[2mLICENSE[22m[39m[2m file in the root directory of ...
 [2m 6 ┆ [22m[2m */;[22m
@@ -52,35 +59,45 @@ FCP.printFile(
 ```
 
 ## Methods
+
 ### `printFile`
-Prints context from a file. 
-#### Signature
-```re 
+
+Prints context from a file.
+
+Signature:
+
+```reason
 let printFile: (~path: string, ~highlight: rowColumnRange) => option(string);
 ```
 
-#### Example
-```
+Example:
+
+```reason
 FCP.printFile(
   "src/file-context-printer/test/DummyFile.re",
   ((7, 1), (7, 11)),
 )
 ```
-```sh-stacked
+
+```bash-ansi
 [2m 6 ┆ [22m[2m */;[22m
 [31m[2m 7 ┆ [22m[39m[31m[1m[4mlet myFunc[24m[22m[39m[2mtion = ()[22m[31m[2m => [22m[39m[2mprint_endline([22m[32m[2m"do something"[22m[39m[2m);[22m
 [2m 8 ┆ [22m
 ```
 
 ### `print`
-Prints context from a list of lines
-#### Signature
-```re 
+
+Prints context from a list of lines.
+
+Signature:
+
+```reason
 let print: (list(string), ~highlight: rowColumnRange) => string;
 ```
 
-#### Example
-```
+Example:
+
+```reason
 FCP.print(
   [
     "/**",
@@ -92,7 +109,7 @@ FCP.print(
     "let myFunction = () => print_endline(\"do something\");",
     "",
     "let ex = (arg) => {",
-    "  if(arg === true) {", 
+    "  if(arg === true) {",
     "    print_endline(\"raising an error\");",
     "    raise(Not_found);",
     "  }",
@@ -101,7 +118,8 @@ FCP.print(
   ((7, 1), (7, 11)),
 )
 ```
-```sh-stacked
+
+```bash-ansi
 [2m 6 ┆ [22m[2m */;[22m
 [31m[2m 7 ┆ [22m[39m[31m[1m[4mlet myFunc[24m[22m[39m[2mtion = ()[22m[31m[2m => [22m[39m[2mprint_endline([22m[32m[2m"do something"[22m[39m[2m);[22m
 [2m 8 ┆ [22m

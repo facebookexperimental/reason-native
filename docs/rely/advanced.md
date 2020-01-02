@@ -34,7 +34,7 @@ TestFramework.run(customReporterConfig);
 
 It is recommended to use something like the following run configuration in CI
 
-```
+```reason
 TestFramework.run(
   Rely.RunConfig.(
     initialize()

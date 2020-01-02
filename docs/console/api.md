@@ -5,6 +5,7 @@ sidebar_label: API
 ---
 
 ## `Console.log(anything)`
+
 Output a string or object to standard output followed by a newline. Suitable
 for writing to logs, or for outputting user messaging in command line
 applications. If you pass a string, it will not be wrapped in quotes. If you
@@ -26,6 +27,7 @@ let out: 'a => unit;
 ```
 
 ## `Console.debug(anything)`
+
 Same as `Console.log` but used for developer-facing messaging to standard out.
 Suitable for writing to log files. In production mode, would typically be
 suppressed entirely. Custom `Console.t` implementations may implement custom
@@ -36,6 +38,7 @@ let debug: 'a => unit;
 ```
 
 ## `Console.error(anything)`
+
 Same as `Console.log` but writes to `stderr`.
 
 ```reason

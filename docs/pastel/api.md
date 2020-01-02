@@ -14,7 +14,7 @@ All text formatting is accomplished through the `<Pastel [props] />` tag.
 
 The `color` prop specifies the color of the contained text. It can be any of the 16 [4-bit ANSI colors](https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit):
 
-```re
+```reason
 color =
   | Black
   | Red
@@ -35,14 +35,16 @@ color =
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   Pastel.(
     <Pastel color=Blue> "Hello World" </Pastel>
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 [34mHello World[39m
 ```
 ---
@@ -51,7 +53,7 @@ print_endline(
 
 The `backgroundColor` prop specifies the color of the contained text. It can be any of the 16 [4-bit ANSI colors](https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit):
 
-```re
+```reason
 backgroundColor =
   | Black
   | Red
@@ -72,29 +74,34 @@ backgroundColor =
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   Pastel.(
     <Pastel backgroundColor=Blue> "Hello World" </Pastel>
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 [44mHello World[49m
 ```
+
 ---
+
 ### `bold=Boolean`
 
 The `bold` prop specifies if Pastel should bold the text:
 
-```re
+```reason
 bold =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -102,22 +109,26 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [1mWorld[22m
 ```
+
 ---
+
 ### `dim=Boolean`
 
 The `dim` prop specifies if Pastel should dim the text:
 
-```re
+```reason
 dim =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -125,22 +136,26 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [90mWorld[39m
 ```
+
 ---
+
 ### `italic=Boolean`
 
 The `italic` prop specifies if Pastel should italicize the text:
 
-```re
+```reason
 italic =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -148,22 +163,26 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [3mWorld[23m
 ```
+
 ---
+
 ### `underline=Boolean`
 
 The `underline` prop specifies if Pastel should underline the text:
 
-```re
+```reason
 underline =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -171,22 +190,26 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [4mWorld[24m
 ```
+
 ---
+
 ### `inverse=Boolean`
 
 The `inverse` prop specifies if Pastel should invert the text:
 
-```re
+```reason
 inverse =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -194,22 +217,26 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [30m[107mWorld[49m[39m
 ```
+
 ---
+
 ### `hidden=Boolean`
 
 The `hidden` prop specifies if Pastel should hide the text:
 
-```re
+```reason
 hidden =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -217,23 +244,26 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [8mWorld[28m
 ```
 
 ---
+
 ### `strikethrough=Boolean`
 
 The `strikethrough` prop specifies if Pastel should strike-through the text:
 
-```re
+```reason
 strikethrough =
   | true
   | false;
 ```
 
 **Example:**
-```re
+
+```reason
 print_endline(
   "Hello " ++
   Pastel.(
@@ -241,12 +271,14 @@ print_endline(
   )
 );
 ```
-```sh-stacked
+
+```bash-ansi
 Hello [9mWorld[29m
 ```
 
 ## Modes
-```re
+
+```reason
 type mode =
   /* uses ANSI escape sequences to achieve lovely terminal coloring */
   | Terminal
@@ -257,7 +289,7 @@ type mode =
   | Disabled
 ```
 
-```re
+```reason
 /* returns the current mode */
 let getMode: unit => mode;
 /* sets the current mode (use with caution, prefer useMode) */
@@ -268,4 +300,3 @@ let defaultMode: mode;
 and then restores the previous mode after execution has completed */
 let useMode: (mode, unit => 'a) => 'a;
 ```
-

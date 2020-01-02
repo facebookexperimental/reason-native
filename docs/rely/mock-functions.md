@@ -91,14 +91,12 @@ When testing code with side effects such as talking to a database or making netw
 
 For example, suppose that we have some code that uses a logger. In production we want the logger to make HTTP requests to some endpoint, but we deem this behavior undesirable for our test.
 
-Without abstracting away the dependendency on our HTTP logger, our code might look like this.
+Without abstracting away the dependency on our HTTP logger, our code might look like this.
 
-#### MyModule.re
-
-```reasonml
+```reason
 module MyApp = {
   let doSomethingThatGetsLogged = () => {
-    HTTPLogger.log("starting to do someting");
+    HTTPLogger.log("starting to do something");
     SomeModule.doSomething();
     HTTPLogger.log("did the thing!");
   };
@@ -109,7 +107,7 @@ Instead we could inject the code via a functor (module function) or via an ordin
 
 #### MyModule.re
 
-```reason {
+```reason
 module Make = (Dependencies: {let log: string => unit;}) => {
   let doSomethingThatGetsLogged = () => {
     Dependencies.log("starting to do something");
@@ -117,6 +115,7 @@ module Make = (Dependencies: {let log: string => unit;}) => {
     Dependencies.log("did the thing!");
   };
 };
+
 /*
  * Making the "real" versions of the module could easily be handled elsewhere
  *  in the application but is shown here for simplicity
@@ -135,7 +134,7 @@ In your tests you can do this
 
 #### MyModuleTest.re
 
-```reason {
+```reason
 open TestFramework;
 
 let mockLog = Mock.mock1(_ => ());

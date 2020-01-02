@@ -1,21 +1,28 @@
 {
   "scripts": {
-    "examples": "docusaurus-examples",
-    "start": "docusaurus-start",
-    "build": "docusaurus-build",
-    "publish-gh-pages": "docusaurus-publish",
-    "write-translations": "docusaurus-write-translations",
-    "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version",
-    "regenerate-ansi": "node_modules/.bin/browserify -p tinyify --require 'ansi-to-html' > static/js/ansi-to-html.js"
-  },
-  "devDependencies": {
-    "browserify": "^16.2.3",
-    "ansi-to-html": "^0.6.9",
-    "docusaurus": "^1.6.2",
-    "tinyify": "^2.5.0"
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "reason-highlightjs": "^0.2.0"
+    "@docusaurus/core": "^2.0.0-alpha.40",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.40",
+    "ansi-to-react": "^5.1.0",
+    "classnames": "^2.2.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

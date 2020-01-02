@@ -23,14 +23,10 @@ window.addEventListener('load', function () {
       15: '#FFF'
     }
   });
-  document.querySelectorAll('.language-sh').forEach(function (block) {
+
+  document.querySelectorAll('.language-bash-ansi').forEach(function (block) {
     var parent = block.parentElement;
     parent.className = 'example-output';
-    parent.innerHTML = convert.toHtml(block.innerText);
-  });
-  document.querySelectorAll('.language-sh-stacked').forEach(function (block) {
-    var parent = block.parentElement;
-    parent.className = 'example-output stacked';
     parent.innerHTML = convert.toHtml(block.innerText);
   });
 });

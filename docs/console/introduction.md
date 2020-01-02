@@ -1,6 +1,6 @@
 ---
-id: index
-title: Console: No effort, universal logger
+id: introduction
+title: "Console: No effort, universal logger"
 sidebar_label: Introduction
 ---
 
@@ -10,6 +10,7 @@ accept any type of input. Record fields and variant label names are lost at
 compile time so they aren't printed.
 
 **Suitable For Developers or Users:**
+
 - Passing a single `string` (as in `Console.log("hello")`) will not print the
   quotes (just like in the browser)
 - Passing a deep structure will print the deep structure, and strings that
@@ -33,7 +34,7 @@ Records/variant types that occupy more than one word in a block are all
 printed as their corresponding integer (if a payloadless variant), or `{x, y,
 ...z}` for a record or variant that contains data.
 
-```re
+```reason
 Console.log(Some("hi")); /* {"hi"} */
 Console.log(None); /* 0 */
 ```
