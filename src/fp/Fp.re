@@ -40,32 +40,22 @@ let root = (Abs(None), []);
 let home = (Rel(Home, 0), []);
 let dot = (Rel(Any, 0), []);
 
-let getUname = () => {
-  let ic = Unix.open_process_in("uname");
-  let uname = String.trim(input_line(ic));
-  close_in(ic);
-  uname;
-};
-
 type windows =
-  | Cygwin
-  | Win32;
+  | Win32
+  | Cygwin;
+
 type platform =
-  | Linux
   | Windows(windows)
-  | Darwin;
+  | Posix;
 
 let platform =
   lazy (
     if (Sys.unix) {
-      switch (getUname()) {
-      | "Darwin" => Darwin
-      | _ => Linux
-      };
+      Posix
     } else if (Sys.cygwin) {
-      Windows(Cygwin);
+      Windows(Cygwin)
     } else {
-      Windows(Win32);
+      Windows(Win32)
     }
   );
 
@@ -227,10 +217,7 @@ let parseFirstTokenRelative = token =>
   | DRIVE(l) => None
   };
 
-let normalizePathSeparator = {
-  let backSlashRegex = Str.regexp("\\\\");
-  pathStr => pathStr |> Str.global_replace(backSlashRegex, "/");
-};
+let normalizePathSeparator = pathStr => pathStr |> String.split_on_char('\\') |> String.concat("/");
 
 let absolutePlatform = (~fromPlatform, s) => {
   let s =
